@@ -639,6 +639,9 @@ if test x${FORCE} != x || test ${RC} -eq 104 ; then
 	    fi
 	done
 	printerror initscript ${INITSCRIPTID}, action \"${saction}\" failed.
+	if [ -n "$is_systemd" ] && [ "$saction" = start -o "$saction" = restart ]; then
+	    systemctl status --no-pager "${UNIT}" || true
+	fi
 	exit ${RC}
     fi
     exit 102

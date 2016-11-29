@@ -1,3 +1,12 @@
+init-system-helpers (1.29ubuntu4) xenial; urgency=medium
+
+  * script/invoke-rc.d: backport change from 1.36 so that logs showing a
+    failure to start a service with systemd will include the necessary
+    information to debug, not just instructions to run an additional
+    command.  LP: #1596056.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Tue, 29 Nov 2016 11:09:41 -0800
+
 init-system-helpers (1.29ubuntu3) xenial-proposed; urgency=medium
 
   * invoke-rc.d, service: Only ignore systemd unit dependencies before
